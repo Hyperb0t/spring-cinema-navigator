@@ -1,0 +1,9 @@
+.active {
+    text-decoration: underline;
+
+}
+input[type="radio"]:checked+label {
+    /*background-color: #28a745;*/
+    background-color: white;
+    font-weight: bold;
+}
