@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Service
-public class PurchaseHelper {
+public class PurchaseService {
 
     private final int hallRows = 6;
     private final int hallColumns = 10;
@@ -36,7 +36,7 @@ public class PurchaseHelper {
             return "redirect:/search";
         }
         List<Order> orders = orderRepository.findBySeanceId(seanceId);
-        boolean displayPlaces[][] = new boolean[hallRows][hallColumns];
+        boolean[][] displayPlaces = new boolean[hallRows][hallColumns];
         for(int i = 0; i < hallRows; i++) {
             for(int j = 0; j < hallColumns; j++) {
                 displayPlaces[i][j] = isPlaceBusy(i*hallColumns + j, orders);
@@ -92,6 +92,20 @@ public class PurchaseHelper {
         orderRepository.save(order);
         redirectAttributes.addFlashAttribute("successOrder", order);
         return "redirect:/success";
+    }
+
+    public Order purchase(int place, Seance seance, User user) {
+        if(place < 0 || place >= hallRows*hallColumns) {
+            throw new IllegalArgumentException("wrong place number: " + place);
+        }
+        Order order = Order.builder()
+                .place(place)
+                .seance(seance)
+                .user(user)
+                .datetime(Instant.now())
+                .build();
+        orderRepository.save(order);
+        return order;
     }
 
 }

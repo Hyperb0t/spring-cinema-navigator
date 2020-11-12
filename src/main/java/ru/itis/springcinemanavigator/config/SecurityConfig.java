@@ -46,10 +46,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordParameter("password")
                 .defaultSuccessUrl("/cabinet")//mvcUriBuilder
                 .and()
+                //Включение Rememer me
                 .rememberMe().rememberMeParameter("remember").tokenValiditySeconds(1209600)
                 .and()
-                .csrf().disable();
-        http.logout().logoutUrl("/logout").logoutSuccessUrl("/login").deleteCookies("JSESSIONID"); //mvcUriBuilder
+                .logout().logoutUrl("/logout").logoutSuccessUrl("/login").deleteCookies("JSESSIONID");
     }
 
     @Override

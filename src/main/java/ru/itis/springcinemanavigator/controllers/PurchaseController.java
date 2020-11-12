@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import ru.itis.springcinemanavigator.services.PurchaseHelper;
+import ru.itis.springcinemanavigator.services.PurchaseService;
 
 import javax.servlet.ServletException;
 import java.io.IOException;
@@ -20,17 +20,18 @@ import java.util.Map;
 public class PurchaseController {
 
     @Autowired
-    private PurchaseHelper purchaseHelper;
+    private PurchaseService purchaseService;
 
     @GetMapping
     public String getPurchasePage(@RequestParam("seanceId")Long seanceId, Model model) throws IOException, ServletException {
-        return purchaseHelper.showPage(seanceId, model);
+        return purchaseService.showPage(seanceId, model);
     }
 
     @PostMapping
     public String purchase(@RequestParam Map<String,String> attrs, Model model,
                            Authentication authentication,
                            RedirectAttributes redirectAttributes) throws IOException, ServletException {
-        return purchaseHelper.purchase(attrs, model, authentication, redirectAttributes);
+        return purchaseService.purchase(attrs, model, authentication, redirectAttributes);
     }
+
 }

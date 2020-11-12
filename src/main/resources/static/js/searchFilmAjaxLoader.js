@@ -58,7 +58,7 @@ function addSeancesToDOM(seances) {
             <p>${seances[i]['film']['description']}</p>
         </div>
         <div class="col-lg-3 col-md-10 col-sm-10 d-flex justify-content-center mx-auto">
-            <form class="col-9 my-auto" action="/purchase">
+            <form class="col-11 px-0 my-auto" action="/purchase">
                 <input type="hidden" value="${seances[i]['id']}" name="seanceId">
                 <input type="submit" class="btn btn-primary col-12 my-auto" value="Купить билет">
             </form>

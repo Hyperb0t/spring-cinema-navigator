@@ -1,0 +1,17 @@
+= Описание API по сеансам
+
+
+.curl-request
+include::../target/snippets/purchase_seance/curl-request.adoc[]
+
+.http-request
+include::../target/snippets/purchase_seance/http-request.adoc[]
+
+.http-response
+include::../target/snippets/purchase_seance/http-response.adoc[]
+
+.response-body
+include::../target/snippets/purchase_seance/response-body.adoc[]
+
+.response-fields
+include::../target/snippets/purchase_seance/response-fields.adoc[]

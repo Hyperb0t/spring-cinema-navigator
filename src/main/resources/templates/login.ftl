@@ -21,6 +21,7 @@
                                value="${passwordValue!}" id="password">
                     </div>
                 </div>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                 <div class="form-group">
                     <div class="form-check justify-content-center">
                         <input name="remember" class="form-check-input" type="checkbox" id="remember">

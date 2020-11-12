@@ -11,3 +11,5 @@ INSERT INTO public.seance (id, endtime, price, starttime, film_id) VALUES (1, '2
 INSERT INTO public.seance (id, endtime, price, starttime, film_id) VALUES (5, '2019-12-13 21:00:00.000000', 190, '2019-12-13 18:00:00.000000', 3);
 
 INSERT INTO public."user" (id, bonuses, email, password, role) VALUES (1, null, 'first@reg.test', '$2a$10$FIQS1JQcC.kD8StHFRIySeFgPV8TGYUz0i6018Ti8C2TULIYYqtSW', 'USER');
+
+
